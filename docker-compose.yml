@@ -1,5 +1,14 @@
+x-env: &env
+  environment:
+    DB_HOST: db
+    DB_USER: root
+    DB_PASS: password
+    MYSQL_ROOT_PASSWORD: password
+    TZ: "Asia/Tokyo"
+
 services:
   db:
+    <<: *env
     image: mysql:8.0
     command:
       - '--bind-address=0.0.0.0'
@@ -8,12 +17,10 @@ services:
       - type: volume
         source: mysqldata
         target: /var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      TZ: "Asia/Tokyo"
     ports:
       - '3306:3306'
   web:
+    <<: *env
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -24,16 +31,13 @@ services:
       - type: volume
         source: gemdata
         target: /usr/local/bundle
+    command: bash -c "rm -f ./tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
       - "3000:3000"
     depends_on:
       - db
     stdin_open: true
     tty: true
-    environment:
-      MYSQL_PASSWORD: password
-      DB_HOST: db
-      TZ: "Asia/Tokyo"
 volumes:
   gemdata:
   mysqldata:
