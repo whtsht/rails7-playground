@@ -1,0 +1,40 @@
+# syntax = docker/dockerfile:1
+
+ARG RUBY_VERSION=3.3.5
+FROM docker.io/library/ruby:$RUBY_VERSION-bullseye
+
+WORKDIR /app
+
+# Set production environment
+ENV RAILS_ENV="development" \
+  BUNDLE_WITHOUT=""
+
+# Install packages needed to build gems
+RUN apt-get update -qq && \
+  apt-get install -y build-essential default-libmysqlclient-dev git pkg-config openssl libssl-dev
+
+# Copy application code
+COPY . .
+
+# Create the user
+ARG USERNAME=rails
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd --gid $USER_GID $USERNAME \
+  && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+  && chown -R $USER_UID:$USER_GID /app \
+  # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
+  && apt-get update \
+  && apt-get install -y sudo \
+  && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+  && chmod 0440 /etc/sudoers.d/$USERNAME
+
+USER $USERNAME
+
+# Entrypoint prepares the database.
+# ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+
+# Start the server by default, this can be overwritten at runtime
+# EXPOSE 3000
+# CMD ["./bin/rails", "server", "-b", "0.0.0.0"]

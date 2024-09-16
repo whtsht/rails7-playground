@@ -1,0 +1,39 @@
+services:
+  db:
+    image: mysql:8.0
+    command:
+      - '--bind-address=0.0.0.0'
+      - '--character-set-server=utf8mb4'
+    volumes:
+      - type: volume
+        source: mysqldata
+        target: /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      TZ: "Asia/Tokyo"
+    ports:
+      - '3306:3306'
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+      - type: volume
+        source: gemdata
+        target: /usr/local/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+    environment:
+      MYSQL_PASSWORD: password
+      DB_HOST: db
+      TZ: "Asia/Tokyo"
+volumes:
+  gemdata:
+  mysqldata:
