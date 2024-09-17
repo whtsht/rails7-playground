@@ -11,7 +11,7 @@ ENV RAILS_ENV="development" \
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-  apt-get install -y build-essential default-libmysqlclient-dev git pkg-config openssl libssl-dev
+  apt-get install -y build-essential default-libmysqlclient-dev git pkg-config openssl libssl-dev ruby-chromedriver-helper
 
 # Copy application code
 COPY . .

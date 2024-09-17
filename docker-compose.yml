@@ -6,9 +6,12 @@ x-env: &env
     MYSQL_ROOT_PASSWORD: password
     TZ: "Asia/Tokyo"
 
+x-settings: &settings
+  init: true
+
 services:
   db:
-    <<: *env
+    <<: [*env, *settings]
     image: mysql:8.0
     command:
       - '--bind-address=0.0.0.0'
@@ -20,7 +23,7 @@ services:
     ports:
       - '3306:3306'
   web:
-    <<: *env
+    <<: [*env, *settings]
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -38,6 +41,7 @@ services:
       - db
     stdin_open: true
     tty: true
+
 volumes:
   gemdata:
   mysqldata:
