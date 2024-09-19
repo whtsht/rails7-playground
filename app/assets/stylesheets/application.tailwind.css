@@ -2,12 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+@layer base {
+  *,
+  *::before,
+  *::after  {
+    @apply box-border;
+  }
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+  * {
+    @apply m-0 p-0;
+  }
+
+  html {
+    @apply h-full overflow-y-scroll;
+  }
+
+  body {
+    @apply flex flex-col min-h-full bg-background text-body leading-body font-sans;
+  }
+
+  img,
+  picture,
+  svg {
+    @apply block max-w-full;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    @apply font-inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-header leading-header;
+  }
+
+  a {
+    @apply text-primary no-underline transition-colors duration-200;
+
+    &:hover,
+    &:focus,
+    &:active {
+      @apply text-primary-rotate;
+    }
   }
 }
-
-*/

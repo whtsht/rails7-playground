@@ -6,6 +6,7 @@ docker compose build
 docker compose up -d
 docker compose run --rm web bundle install
 docker compose run --rm web rails db:create
+docker compose run --rm web rails db:seed
 ```
 
 * Reset
@@ -15,6 +16,7 @@ docker compose build --no-cache
 docker compose up -d
 docker compose run --rm web bundle install
 docker compose run --rm web rails db:create
+docker compose run --rm web rails db:seed
 ```
 
 * Ruby version
