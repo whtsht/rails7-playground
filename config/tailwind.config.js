@@ -17,12 +17,12 @@ module.exports = {
         body: 'hsl(0, 5%, 25%)',
         muted: 'hsl(0, 1%, 44%)',
         primary: {
-          default: 'hsl(350, 67%, 50%)',
+          DEFAULT: 'hsl(350, 67%, 50%)',
           rotate: 'hsl(10, 73%, 54%)',
           bg: 'hsl(0, 85%, 96%)',
         },
         secondary: {
-          default: 'hsl(101, 45%, 56%)',
+          DEFAULT: 'hsl(101, 45%, 56%)',
           rotate: 'hsl(120, 45%, 56%)',
         },
         tertiary: 'hsl(49, 89%, 64%)',
@@ -31,6 +31,32 @@ module.exports = {
         background: 'hsl(30, 50%, 98%)',
         light: 'hsl(0, 6%, 93%)',
         dark: 'hsl(0, 1%, 16%)',
+      },
+      lineHeight: {
+        'header': '1.1',
+        'body': '1.5',
+      },
+      fontSize: {
+        xs: '0.75rem',     // 12px
+        s: '0.875rem',     // 14px
+        m: '1rem',         // 16px
+        l: '1.125rem',     // 18px
+        xl: '1.25rem',     // 20px
+        xxl: '1.5rem',     // 24px
+        xxxl: '2rem',      // 32px
+        xxxxl: '2.5rem',   // 40px
+      },
+      spacing: {
+        xxxs: '0.25rem',   // 4px
+        xxs: '0.375rem',   // 6px
+        xs: '0.5rem',      // 8px
+        s: '0.75rem',      // 12px
+        m: '1rem',         // 16px
+        l: '1.5rem',       // 24px
+        xl: '2rem',        // 32px
+        xxl: '2.5rem',     // 40px
+        xxxl: '3rem',      // 48px
+        xxxxl: '4rem',     // 64px
       },
     },
   },

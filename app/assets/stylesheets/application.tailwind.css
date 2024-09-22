@@ -31,7 +31,7 @@
   button,
   textarea,
   select {
-    @apply font-inherit;
+    font: inherit;
   }
 
   h1,
@@ -41,6 +41,22 @@
   h5,
   h6 {
     @apply text-header leading-header;
+  }
+
+  h1 {
+    @apply text-xxxl;
+  }
+
+  h2 {
+    @apply text-xxl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-l;
   }
 
   a {
