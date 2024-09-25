@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   # コンポーネントの呼び出しを単純化するメソッド
   # こう書かなくてはならないところを

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # D = Steep::Diagnostic
 #
 # target :lib do
@@ -30,9 +32,9 @@
 
 D = Steep::Diagnostic
 target :app do
-  check "lib", "app"
-  ignore "lib/generators" "lib/assets"
-  signature "sig"
+  check 'lib', 'app'
+  ignore 'lib/generatorslib/assets'
+  signature 'sig'
 
   # 型検査はせずに補完強化用途でのみSteepを利用する
   configure_code_diagnostics do |hash|

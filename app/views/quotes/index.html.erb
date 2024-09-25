@@ -1,10 +1,9 @@
 <main class="container">
   <div class="header">
-    <%= component "button", title: "hello" %>
+    <%= component "button", color: :primary %>
+    <%= component "button", color: :secondary %>
     <h1 class="colors">Quotes</h1>
-    <%= link_to "New quote",
-                new_quote_path,
-                class: "btn btn--primary" %>
+    <%= link_to "New quote", new_quote_path, class: "btn btn--primary" %>
   </div>
 
   <%= render @quotes %>

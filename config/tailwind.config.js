@@ -1,5 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
   content: [
     './public/*.html',
@@ -13,6 +11,7 @@ module.exports = {
         sans: ['Lato', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', '"Open Sans"', '"Helvetica Neue"', 'sans-serif'],
       },
       colors: {
+        transparent: 'transparent',
         header: 'hsl(0, 1%, 16%)',
         body: 'hsl(0, 5%, 25%)',
         muted: 'hsl(0, 1%, 44%)',
@@ -58,6 +57,19 @@ module.exports = {
         xxxl: '3rem',      // 48px
         xxxxl: '4rem',     // 64px
       },
+    },
+    borderRadius: {
+      DEFAULT: '0.375rem'
+    },
+    borderWidth: {
+      DEFAULT: '2px'
+    },
+    borderColor: theme => ({
+      light: theme('colors.light')
+    }),
+    boxShadow: {
+      small: '1px 3px 6px rgba(0, 0, 0, 0.1)',
+      large: '2px 4px 10px rgba(0, 0, 0, 0.1)'
     },
   },
   plugins: [

@@ -9,7 +9,12 @@
     "vscode": {
       "extensions": [
         "bradlc.vscode-tailwindcss",
-        "soutaro.steep-vscode"
+        "soutaro.steep-vscode",
+        "CraigMaslowski.erb",
+        "elia.erb-formatter",
+        "ZneuRay.erb-vscode-snippets",
+        "Shopify.ruby-lsp",
+        "eamodio.gitlens"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash",

@@ -101,6 +101,8 @@ GEM
       reline (>= 0.3.8)
     drb (2.2.1)
     dry-initializer (3.1.1)
+    erb-formatter (0.7.3)
+      syntax_tree (~> 6.0)
     erubi (1.13.0)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-arm-linux-gnu)
@@ -171,6 +173,7 @@ GEM
     parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
+    prettier_print (1.2.1)
     prism (1.0.0)
     psych (5.1.2)
       stringio
@@ -299,6 +302,8 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.1)
     strscan (3.1.0)
+    syntax_tree (6.2.0)
+      prettier_print (>= 1.2.0)
     tailwindcss-rails (2.7.4)
       railties (>= 7.0.0)
     tailwindcss-rails (2.7.4-aarch64-linux)
@@ -358,6 +363,7 @@ DEPENDENCIES
   capybara
   debug
   dry-initializer
+  erb-formatter
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)
@@ -365,6 +371,7 @@ DEPENDENCIES
   rails (~> 7.2.1)
   rbs-inline
   rbs_rails
+  rubocop
   rubocop-rails-omakase
   selenium-webdriver
   simple_form (~> 5.1.0)
