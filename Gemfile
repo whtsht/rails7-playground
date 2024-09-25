@@ -38,7 +38,7 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 gem 'dry-initializer'
-gem 'simple_form', '~> 5.1.0'
+gem 'simple_form', '~> 5.3.1'
 gem 'view_component', '~> 3.14'
 gem 'view_component-contrib', '~> 0.2.3'
 
