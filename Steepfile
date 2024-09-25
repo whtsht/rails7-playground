@@ -39,5 +39,5 @@ target :app do
     D::Ruby::ALL.each do |error|
       hash[error] = nil
     end
-  end  
+  end
 end
