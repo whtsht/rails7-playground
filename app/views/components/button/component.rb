@@ -1,6 +1,14 @@
-# frozen_string_literal: true
-
 class Button::Component < ApplicationViewComponent
+  option :color, default: -> { :primary }
+
+  attr_reader :color
+
+  def call
+    button_tag(class: style(color:)) do
+      content
+    end
+  end
+
   style do
     base do
       %(
@@ -16,45 +24,35 @@ class Button::Component < ApplicationViewComponent
         outline-none
         transition
         filter duration-400 color duration-200
-        hover:filter hover:duration-[250ms] hover:color hover:duration-[200ms]
-        focus:filter focus:duration-[250ms] focus:color focus:duration-[200ms]
-        active:filter active:duration-[250ms] active:color active:duration-[200ms]
       )
     end
+
+    highlight_styles = %(
+      hover:text-white
+      hover:saturate-[1.4] hover:brightness-[115%]
+      focus:text-white
+      focus:saturate-[1.4] focus:brightness-[115%]
+      active:text-white
+      active:saturate-[1.4] active:brightness-[115%]
+    )
+
     variants do
       color do
         primary do
           %(
             text-white
             bg-gradient-to-r from-primary to-primary-rotate
-            hover:text-white
-            hover:saturate-[1.4] hover:brightness-[115%]
-            focus:text-white
-            focus:saturate-[1.4] focus:brightness-[115%]
-            active:text-white
-            active:saturate-[1.4] active:brightness-[115%]
+            #{highlight_styles}
           )
         end
         secondary do
           %(
             text-white
             bg-gradient-to-r from-secondary to-secondary-rotate
-            hover:text-white
-            hover:saturate-[1.4] hover:brightness-[115%]
-            focus:text-white
-            focus:saturate-[1.4] focus:brightness-[115%]
-            active:text-white
-            active:saturate-[1.4] active:brightness-[115%]
+            #{highlight_styles}
           )
         end
       end
     end
-  end
-
-  attr_reader :color
-
-  def initialize(color: :primary)
-    super
-    @color = color
   end
 end
