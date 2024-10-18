@@ -39,7 +39,7 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 gem 'dry-initializer'
 gem 'simple_form', '~> 5.1.0'
-gem 'view_component', '~> 3.14'
+gem 'view_component', '~> 3.18'
 gem 'view_component-contrib', '~> 0.2.3'
 
 group :development, :test do
