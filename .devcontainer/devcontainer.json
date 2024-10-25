@@ -26,5 +26,5 @@
       }
     }
   },
-  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && bundle install",
+  "postCreateCommand": "bundle install",
 }
