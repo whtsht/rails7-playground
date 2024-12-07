@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    restart: always
+    container_name: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: rails_playground
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: rails_playground_development
+    ports:
+      - "5432:5432"
+volumes:
+  postgres_data:
