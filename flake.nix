@@ -27,6 +27,7 @@
               pkg-config
               libyaml
               postgresql
+              chromedriver
             ];
             shellHook = ''
             '';

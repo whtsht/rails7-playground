@@ -5,10 +5,13 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-development:
+development: &development
   <<: *default
   database: rails_playground_development
   username: rails_playground
   password: password
   host: localhost
   port: 5432
+
+test:
+  <<: *development
