@@ -28,8 +28,10 @@
               libyaml
               postgresql
               chromedriver
+              redis
             ];
             shellHook = ''
+              export PATH="./bin:$PATH"
             '';
           };
         }
